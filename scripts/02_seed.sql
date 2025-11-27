@@ -4,10 +4,10 @@ TRUNCATE TABLE movimento_estoque, estoque, item_ordem_servico, andamento_ordem_s
     funcionario, pessoa, tipo_funcionario, setor, cor, tamanho, tipo_movimento_estoque,
     tipo_ordem_servico, status_ordem_servico RESTART IDENTITY CASCADE;
 
-INSERT INTO pessoa (id, nome, cpf, matricula_siape, email, telefone, ativo) VALUES
-  (1, 'Ana Pereira', '11122233344', 'S001', 'ana.pereira@ifce.edu.br', '85-99991-0001', true),
-  (2, 'Bruno Oliveira', '22233344455', 'S002', 'bruno.oliveira@ifce.edu.br', '85-99991-0002', true),
-  (3, 'Carla Santos', '33344455566', 'S003', 'carla.santos@ifce.edu.br', '85-99991-0003', true);
+INSERT INTO pessoa (nome, cpf, matricula_siape, email, telefone, ativo) VALUES
+  ('Ana Pereira', '11122233344', 'S001', 'ana.pereira@ifce.edu.br', '85-99991-0001', true),
+  ('Bruno Oliveira', '22233344455', 'S002', 'bruno.oliveira@ifce.edu.br', '85-99991-0002', true),
+  ('Carla Santos', '33344455566', 'S003', 'carla.santos@ifce.edu.br', '85-99991-0003', true);
 
 INSERT INTO tipo_funcionario (id, descricao) VALUES
   (1, 'Jardineiro'),

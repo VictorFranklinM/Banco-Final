@@ -1,16 +1,20 @@
-from database import get_connection
+from fastapi import FastAPI
+from config import settings
+from database import init_db_pool, close_db_pool
+from routes.pessoa_route import router as pessoa_router
 
-def test_connection():
-    conn = get_connection()
-    cur = conn.cursor()
-    cur.execute("SELECT NOW() AS now;")
-    result = cur.fetchone()
-    hora = result["now"]
-    hora_formatada = hora.strftime("%d-%m-%Y %H:%M:%S")
-    print("Conectado com sucesso!")
-    print("Hora do servidor:", hora_formatada)
-    cur.close()
-    conn.close()
+app = FastAPI(title="SIGEJ API")
+
+@app.on_event("startup")
+def startup():
+    init_db_pool()
+
+@app.on_event("shutdown")
+def shutdown():
+    close_db_pool()
+
+app.include_router(pessoa_router, prefix="/api/v1/pessoas", tags=["Pessoas"])
 
 if __name__ == "__main__":
-    test_connection()
+    import uvicorn
+    uvicorn.run(app, host=settings.APP_HOST, port=settings.APP_PORT, reload=False)
