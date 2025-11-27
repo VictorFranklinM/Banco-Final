@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: sigej_postgres
+    restart: always
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_DB: sigej
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - sigej-postgres-data:/var/lib/postgresql/data
+
+volumes:
+  sigej-postgres-data:
