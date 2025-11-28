@@ -7,6 +7,7 @@ from routes.setor_route import router as setor_router
 from routes.funcionario_route import router as funcionario_router
 from routes.tipo_area_campus_route import router as tipo_area_campus_router
 from routes.area_campus_route import router as area_campus_router
+from routes.equipe_manutencao_route import router as equipe_manutencao_router
 
 app = FastAPI(title="SIGEJ API")
 
@@ -24,6 +25,7 @@ app.include_router(funcionario_router, prefix="/api/v1/funcionario", tags=["Func
 app.include_router(setor_router, prefix="/api/v1/setor", tags=["Setor"])
 app.include_router(tipo_area_campus_router, prefix="/api/v1/tipoareacampus", tags=["Tipo Area Campus"])
 app.include_router(area_campus_router, prefix="/api/v1/areacampus", tags=["Area Campus"])
+app.include_router(equipe_manutencao_router, prefix="/api/v1/equipemanutencao", tags=["Equipe Manutencao"])
 
 if __name__ == "__main__":
     import uvicorn
