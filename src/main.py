@@ -13,6 +13,7 @@ from routes.categoria_material_route import router as categoria_material_router
 from routes.unidade_medida_route import router as unidade_medida_router
 from routes.fornecedor_route import router as fornecedor_router
 from routes.marca_route import router as marca_router
+from routes.produto_route import router as produto_router
 
 app = FastAPI(title="SIGEJ API")
 
@@ -36,6 +37,7 @@ app.include_router(categoria_material_router, prefix="/api/v1/categoriamaterial"
 app.include_router(unidade_medida_router, prefix="/api/v1/unidademedida", tags=["Unidade Medida"])
 app.include_router(fornecedor_router, prefix="/api/v1/fornecedor", tags=["Fornecedor"])
 app.include_router(marca_router, prefix="/api/v1/marca", tags=["Marca"])
+app.include_router(produto_router, prefix="/api/v1/produto", tags=["Produto"])
 
 if __name__ == "__main__":
     import uvicorn
