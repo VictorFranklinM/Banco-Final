@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException, Query
+from fastapi import APIRouter, HTTPException
 from typing import List
 from models.pessoa import PessoaIn, PessoaOut
 from services import pessoa_service
@@ -18,8 +18,7 @@ def obter_pessoa(pessoa_id: int):
 
 @router.post("/", response_model=PessoaOut, status_code=201)
 def criar_pessoa(payload: PessoaIn):
-    created = pessoa_service.create_pessoa(payload.dict())
-    return created
+    return pessoa_service.create_pessoa(payload.dict())
 
 @router.put("/{pessoa_id}", response_model=PessoaOut)
 def atualizar_pessoa(pessoa_id: int, payload: PessoaIn):

@@ -2,9 +2,9 @@ from typing import List, Optional
 from database import fetchall, fetchone, execute
 import psycopg2
 
-def list_pessoas(limit: int = 100, offset: int = 0) -> List[dict]:
-    sql = "SELECT id, nome, cpf, matricula_siape, email, telefone, ativo FROM pessoa ORDER BY id LIMIT %s OFFSET %s"
-    return fetchall(sql, (limit, offset))
+def list_pessoas() -> List[dict]:
+    sql = "SELECT id, nome, cpf, matricula_siape, email, telefone, ativo FROM pessoa"
+    return fetchall(sql)
 
 def get_pessoa(pessoa_id: int) -> Optional[dict]:
     sql = "SELECT id, nome, cpf, matricula_siape, email, telefone, ativo FROM pessoa WHERE id = %s"
