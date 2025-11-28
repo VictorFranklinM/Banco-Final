@@ -22,6 +22,7 @@ from routes.estoque_route import router as estoque_router
 from routes.tipo_movimento_estoque_route import router as tipo_movimento_estoque_router
 from routes.movimento_estoque_route import router as movimento_estoque_router
 from routes.tipo_ordem_servico_route import router as tipo_ordem_servico_router
+from routes.status_ordem_servico_route import router as status_ordem_servico_router
 
 app = FastAPI(title="SIGEJ API")
 
@@ -54,6 +55,7 @@ app.include_router(tipo_movimento_estoque_router, prefix="/api/v1/tipomovimentoe
 app.include_router(movimento_estoque_router, prefix="/api/v1/movimentoestoque", tags=["Movimento Estoque"])
 app.include_router(estoque_router, prefix="/api/v1/estoque", tags=["Estoque"])
 app.include_router(tipo_ordem_servico_router, prefix="/api/v1/tipoordemservico", tags=["Tipo Ordem Servico"])
+app.include_router(status_ordem_servico_router, prefix="/api/v1/statusordemservico", tags=["Status Ordem Servico"])
 
 if __name__ == "__main__":
     import uvicorn
