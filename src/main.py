@@ -25,6 +25,7 @@ from routes.tipo_ordem_servico_route import router as tipo_ordem_servico_router
 from routes.status_ordem_servico_route import router as status_ordem_servico_router
 from routes.ordem_servico_route import router as ordem_servico_router
 from routes.item_ordem_servico_route import router as item_ordem_servico_router
+from routes.andamento_ordem_servico_route import router as andamento_ordem_servico_router
 
 app = FastAPI(title="SIGEJ API")
 
@@ -60,6 +61,7 @@ app.include_router(tipo_ordem_servico_router, prefix="/api/v1/tipoordemservico",
 app.include_router(status_ordem_servico_router, prefix="/api/v1/statusordemservico", tags=["Status Ordem Servico"])
 app.include_router(ordem_servico_router, prefix="/api/v1/ordemservico", tags=["Ordem Servico"])
 app.include_router(item_ordem_servico_router, prefix="/api/v1/itemordemservico", tags=["Item Ordem Servico"])
+app.include_router(andamento_ordem_servico_router, prefix="/api/v1/andamentoordemservico", tags=["Andamento Ordem Servico"])
 
 if __name__ == "__main__":
     import uvicorn
