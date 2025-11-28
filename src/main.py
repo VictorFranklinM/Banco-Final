@@ -26,6 +26,7 @@ from routes.status_ordem_servico_route import router as status_ordem_servico_rou
 from routes.ordem_servico_route import router as ordem_servico_router
 from routes.item_ordem_servico_route import router as item_ordem_servico_router
 from routes.andamento_ordem_servico_route import router as andamento_ordem_servico_router
+from routes.consultas_route import router as consultas_router
 
 app = FastAPI(title="SIGEJ API")
 
@@ -37,6 +38,7 @@ def startup():
 def shutdown():
     close_db_pool()
 
+app.include_router(consultas_router, prefix="/api/v1/consultas", tags=["Consultas"])
 app.include_router(pessoa_router, prefix="/api/v1/pessoas", tags=["Pessoas"])
 app.include_router(tipo_funcionario_router, prefix="/api/v1/tipofuncionario", tags=["Tipo Funcionario"])
 app.include_router(funcionario_router, prefix="/api/v1/funcionario", tags=["Funcionario"])
