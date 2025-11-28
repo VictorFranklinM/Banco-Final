@@ -3,6 +3,7 @@ from config import settings
 from database import init_db_pool, close_db_pool
 from routes.pessoa_route import router as pessoa_router
 from routes.tipo_funcionario_route import router as tipo_funcionario_router
+from routes.setor_route import router as setor_router
 
 app = FastAPI(title="SIGEJ API")
 
@@ -16,6 +17,7 @@ def shutdown():
 
 app.include_router(pessoa_router, prefix="/api/v1/pessoas", tags=["Pessoas"])
 app.include_router(tipo_funcionario_router, prefix="/api/v1/tipofuncionario", tags=["Tipo Funcionario"])
+app.include_router(setor_router, prefix="/api/v1/setor", tags=["Setor"])
 
 if __name__ == "__main__":
     import uvicorn
