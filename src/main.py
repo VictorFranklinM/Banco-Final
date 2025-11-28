@@ -9,6 +9,7 @@ from routes.tipo_area_campus_route import router as tipo_area_campus_router
 from routes.area_campus_route import router as area_campus_router
 from routes.equipe_manutencao_route import router as equipe_manutencao_router
 from routes.equipe_membro_route import router as equipe_membro_router
+from routes.categoria_material_route import router as categoria_material_router
 
 app = FastAPI(title="SIGEJ API")
 
@@ -28,6 +29,7 @@ app.include_router(tipo_area_campus_router, prefix="/api/v1/tipoareacampus", tag
 app.include_router(area_campus_router, prefix="/api/v1/areacampus", tags=["Area Campus"])
 app.include_router(equipe_manutencao_router, prefix="/api/v1/equipemanutencao", tags=["Equipe Manutencao"])
 app.include_router(equipe_membro_router, prefix="/api/v1/equipemembro", tags=["Equipe Membro"])
+app.include_router(categoria_material_router, prefix="/api/v1/categoriamaterial", tags=["Categoria Material"])
 
 if __name__ == "__main__":
     import uvicorn
