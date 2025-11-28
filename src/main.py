@@ -17,6 +17,7 @@ from routes.produto_route import router as produto_router
 from routes.cor_route import router as cor_router
 from routes.tamanho_route import router as tamanho_router
 from routes.produto_variacao_route import router as produto_variacao_router
+from routes.local_estoque_route import router as local_estoque_router
 
 app = FastAPI(title="SIGEJ API")
 
@@ -44,6 +45,7 @@ app.include_router(cor_router, prefix="/api/v1/cor", tags=["Cor"])
 app.include_router(tamanho_router, prefix="/api/v1/tamanho", tags=["Tamanho"])
 app.include_router(produto_router, prefix="/api/v1/produto", tags=["Produto"])
 app.include_router(produto_variacao_router, prefix="/api/v1/produtovariacao", tags=["Produto Variacao"])
+app.include_router(local_estoque_router, prefix="/api/v1/localestoque", tags=["Local Estoque"])
 
 if __name__ == "__main__":
     import uvicorn
